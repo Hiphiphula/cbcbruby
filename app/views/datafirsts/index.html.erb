@@ -1,0 +1,56 @@
+<% if user_signed_in? %>
+
+<div id="datafirsts">
+	
+  
+
+  <table class="table table-bordered table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <!-- <th scope="col">Last name</th> -->
+      <th scope="col">email</th>
+      <th scope="col">phone</th>
+      <th scope="col">twitter</th>
+      <!-- <th scope="col">user_id</th> -->
+      <th scope="col" colspan="1"></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <% if @datafirsts.present? %>
+    <% @datafirsts.each do |datafirst| %>
+      <% if datafirst.user == current_user %>
+        <tr>
+          <td>
+            <%= link_to datafirst.first_name + " " + datafirst.last_name, datafirst %> 
+            <!-- <%= datafirst.first_name %>  -->
+            <!-- <%= datafirst.last_name %> -->
+              
+            </td>
+          <td><%= datafirst.email %></td>
+          <td><%= datafirst.phone %></td>
+          <td><%= datafirst.twitter %></td>
+          <!-- <td><%= datafirst.user_id %></td> -->
+          <td><%= button_to "Delete", datafirst, method: :delete, data: {confirm: 'Are you sure?' } , class:"btn btn-outline-danger btn-sm" %> </td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% else %> 
+      <tr> 
+        <td colspan="5"> No data Available </td>
+      </tr>
+    <%end%> 
+  </tbody>
+</table>
+</div>
+
+<%= link_to "New datafirst", new_datafirst_path, class: "btn btn-secondary" %>
+
+<% else %> 
+
+<h1>hello world </h1>
+this is my first rails webpage...
+
+<% end %>

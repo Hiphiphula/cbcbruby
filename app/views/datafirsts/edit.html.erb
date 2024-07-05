@@ -1,0 +1,13 @@
+<h1>Editing datafirst</h1>
+
+<%= render "form", datafirst: @datafirst %>
+
+<br>
+
+<div class = "d-flex gap-3">
+  <%= link_to "Show this datafirst", @datafirst , class: "btn btn-secondary"%>
+
+  <%= button_to "Delete", @datafirst, method: :delete, data: {confirm: 'Are you sure?' } , class:"btn btn-danger" %>
+
+  <%= link_to "Back to datafirsts", datafirsts_path, class: "btn btn-secondary btn-dark" %>
+</div>
